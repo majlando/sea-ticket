@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox spacing="10" prefHeight="400.0" prefWidth="600.0"
+      xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="dk.easv.ticket.gui.controller.EventCoordinatorDashboardController"
+      styleClass="dashboard-root" stylesheets="@styles.css">
+
+    <!-- Top bar: welcome + logout -->
+    <HBox styleClass="top-bar">
+        <Label fx:id="lblWelcome" styleClass="welcome-label"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="Logout" onAction="#handleLogout"/>
+    </HBox>
+
+    <Label text="Event Coordinator Dashboard" styleClass="title"/>
+</VBox>

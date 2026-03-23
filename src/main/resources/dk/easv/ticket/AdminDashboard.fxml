@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox spacing="10" prefHeight="500.0" prefWidth="700.0"
+      xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="dk.easv.ticket.gui.controller.AdminDashboardController"
+      styleClass="dashboard-root" stylesheets="@styles.css">
+
+    <!-- Top bar: welcome + logout -->
+    <HBox styleClass="top-bar">
+        <Label fx:id="lblWelcome" styleClass="welcome-label"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="Logout" onAction="#handleLogout"/>
+    </HBox>
+
+    <!-- Main content -->
+    <HBox spacing="20" VBox.vgrow="ALWAYS">
+
+        <!-- Left: search + table -->
+        <VBox spacing="5" HBox.hgrow="ALWAYS">
+            <HBox spacing="5">
+                <TextField fx:id="txtSearch" promptText="Search by username..." HBox.hgrow="ALWAYS"/>
+                <ComboBox fx:id="cbFilterRole" promptText="All Roles" prefWidth="130"/>
+            </HBox>
+            <TableView fx:id="tblUsers" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colId"       text="ID"       prefWidth="50"/>
+                    <TableColumn fx:id="colUsername" text="Username" prefWidth="130"/>
+                    <TableColumn fx:id="colPassword" text="Password" prefWidth="100"/>
+                    <TableColumn fx:id="colRole"     text="Role"     prefWidth="120"/>
+                </columns>
+            </TableView>
+        </VBox>
+
+        <!-- Right: manage panel -->
+        <VBox spacing="10" prefWidth="210">
+            <Label text="Manage Users" styleClass="section-title"/>
+            <TextField fx:id="txtNewUsername" promptText="Username"/>
+            <TextField fx:id="txtNewPassword" promptText="Password"/>
+            <ComboBox fx:id="cbRole" promptText="Select Role" prefWidth="210"/>
+            <Button text="Create User"     onAction="#handleCreateUser" prefWidth="210"/>
+            <Button text="Update Selected" onAction="#handleUpdateUser" prefWidth="210"/>
+            <Button text="Clear"           onAction="#handleClearFields" prefWidth="210"/>
+            <Label fx:id="lblStatus" textFill="red" wrapText="true"/>
+            <Region VBox.vgrow="ALWAYS"/>
+            <Button text="Delete Selected" onAction="#handleDeleteUser" prefWidth="210" styleClass="danger-button"/>
+        </VBox>
+    </HBox>
+</VBox>
